@@ -6,6 +6,7 @@
   --header-footer: #2f303a;
   --team-bg: #f5f4fa;
   --category-search: #757575;
+  --cubik: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -30,7 +31,7 @@ ul {
   padding-right: 15px;
   margin-right: auto;
   margin-left: auto;
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
 }
 .all-nav {
   display: flex;
@@ -68,6 +69,7 @@ ul {
 /* Конец оформления лого */
 .nav-list {
   display: flex;
+
   margin-left: 93px;
 }
 
@@ -83,6 +85,33 @@ ul {
   color: var(--color-nav);
   align-items: center;
   justify-content: center;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
+}
+.nav-item {
+  position: relative;
+}
+
+.nav-after::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--hover-focus);
+  border-radius: 2px;
+  opacity: 0;
+
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
+}
+.nav-after:hover::after,
+.nav-after:focus::after {
+  opacity: 1;
 }
 .border {
   border-bottom: 1px solid #ececec;
@@ -150,6 +179,10 @@ ul {
   cursor: pointer;
   letter-spacing: 0.06em;
   line-height: 1.87;
+
+  transition-property: color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
 }
 .order-service:hover,
 .order-service:focus {
@@ -211,6 +244,29 @@ ul {
   display: flex;
   justify-content: space-between;
 }
+.work-pic {
+  position: relative;
+}
+.text-bottom {
+  position: absolute;
+  display: inline-flex;
+  width: 100%;
+  height: 70px;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(47, 48, 58, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+.text-b {
+  display: inline-flex;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  color: var(--bgcolor);
+}
 .team-list {
   display: flex;
   justify-content: space-between;
@@ -260,6 +316,10 @@ ul {
   font-style: normal;
   font-size: 14px;
   font-weight: 400;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
 }
 .adr-list:hover,
 .adr-list:focus {
@@ -286,8 +346,13 @@ ul {
 .filter-btn .btn-variant + .btn-variant {
   margin-left: 8px;
 }
+
 .btn:hover,
 .btn:focus {
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
+
   color: var(--bgcolor);
   background-color: var(--hover-focus);
   box-shadow: 0px 2px 2px 0px #0000001f, 0px 1px 2px 0px #00000014,
@@ -361,6 +426,10 @@ img {
   padding: 0;
   margin-right: 10px;
   fill: var(--category-search);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
 }
 .nav-link:hover .contact-icon {
   fill: var(--hover-focus);
@@ -394,8 +463,11 @@ img {
   height: 44px;
   background-color: #ffffff;
   border-radius: 50%;
-
   color: #ffffff;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
 }
 .soc-item {
   display: flex;
@@ -413,6 +485,10 @@ img {
 }
 .soc-icon {
   fill: #afb1b8;
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
 }
 .soc-link:hover .soc-icon,
 .soc-link:focus .soc-icon {
@@ -453,11 +529,21 @@ img {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   fill: #afb1b8;
+
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
 }
 .client-link:hover,
 .client-link:focus {
   border-color: var(--hover-focus);
   cursor: pointer;
+}
+.client-pic {
+  fill: inherit;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubik);
 }
 .client-link:hover .client-pic,
 .client-link:focus .client-pic {
