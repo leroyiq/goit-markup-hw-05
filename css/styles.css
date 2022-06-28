@@ -110,7 +110,8 @@ ul {
   transition-timing-function: var(--cubik);
 }
 .nav-after:hover::after,
-.nav-after:focus::after {
+.nav-after:focus::after,
+.nav-after.active::after {
   opacity: 1;
 }
 .border {
