@@ -194,16 +194,10 @@ ul {
 }
 
 .backdrop.is-hidden {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  transform: scale(1.9);
 }
 
 .backdrop {
@@ -217,18 +211,28 @@ ul {
   visibility: visible;
   opacity: 1;
   pointer-events: all;
+  transform: scale(1);
+  transition: transform 250ms var(--cubik);
 }
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+
 .modal {
   position: absolute;
   min-width: 528px;
-  min-height: 581px;
+  min-height: 60vh;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.5);
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  opacity: 1;
+  transition: transform 250ms var(--cubik), opacity 250ms var(--cubik);
 }
 
 .modal-close {
@@ -399,12 +403,14 @@ ul {
   margin-left: 8px;
 }
 
-.btn:hover,
-.btn:focus {
+.btn {
   transition-property: color, background-color, box-shadow;
   transition-duration: 250ms;
   transition-timing-function: var(--cubik);
+}
 
+.btn:hover,
+.btn:focus {
   color: var(--bgcolor);
   background-color: var(--hover-focus);
   box-shadow: 0px 2px 2px 0px #0000001f, 0px 1px 2px 0px #00000014,
